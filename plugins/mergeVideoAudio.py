@@ -137,11 +137,8 @@ async def mergeAudio(c: Client, cb: CallbackQuery, new_file_name: str):
         await uploadVideo(c, cb, f, new_file_name, thumb)
     LOGGER.info(f"Uploading: {new_file_name} Completed!")
     await cb.message.delete()
-    formatDB.set(cb.message.chat.id, "caption", None)
-    formatDB.set(cb.message.chat.id, "drive", False)
-    formatDB.set(cb.message.chat.id, "doc", False)
-    formatDB.set(cb.message.chat.id, "duration", None)
-    formatDB.set(cb.message.chat.id, "size", None)
+    queueDB.update({cb.from_user.id: {"videos": [], "subtitles": [], "audios": []}})
+    formatDB.update({cb.from_user.id: None})
     await delete_all(cb.message.chat.id)
 # import asyncio
 # import os
