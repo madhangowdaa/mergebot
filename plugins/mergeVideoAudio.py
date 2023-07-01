@@ -17,7 +17,7 @@ from config import Config
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from helpers.display_progress import Progress
-from helpers.ffmpeg_helper import MergeAudioNew, take_screen_shot
+from helpers.ffmpeg_helper import MergeAudio, take_screen_shot
 from helpers.rclone_upload import rclone_driver, rclone_upload
 from helpers.uploader import uploadVideo
 from helpers.utils import UserSettings
