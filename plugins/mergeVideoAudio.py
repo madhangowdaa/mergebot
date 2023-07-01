@@ -101,13 +101,13 @@ async def mergeAudio(c: Client, cb: CallbackQuery, new_file_name: str):
     await asyncio.sleep(2)
     await cb.message.edit("⚙️ Preparing to Upload ...")
     await asyncio.sleep(2)
-    if Config.THUMBNAIL and os.path.exists(f"downloads/{str(cb.from_user.id)}/thumb.jpg"):
-        thumb = f"downloads/{str(cb.from_user.id)}/thumb.jpg"
-    else:
-        LOGGER.info("Taking Screenshot to use as thumb...")
-        thumb = f"downloads/{str(cb.from_user.id)}/thumb.jpg"
-        await take_screen_shot(f, 0, thumb)
-        LOGGER.info("Thumbnail Generated Successfully ...")
+    # if Config.THUMBNAIL and os.path.exists(f"downloads/{str(cb.from_user.id)}/thumb.jpg"):
+    #     thumb = f"downloads/{str(cb.from_user.id)}/thumb.jpg"
+    # else:
+    #     LOGGER.info("Taking Screenshot to use as thumb...")
+    #     thumb = f"downloads/{str(cb.from_user.id)}/thumb.jpg"
+    #     await take_screen_shot(f, 0, thumb)
+    #     LOGGER.info("Thumbnail Generated Successfully ...")
     if UPLOAD_AS_DOC:
         formatDB.set(cb.message.chat.id, "doc", True)
     elif UPLOAD_TO_DRIVE[cb.from_user.id]:
