@@ -10,6 +10,17 @@ from pyrogram.types import Message
 from __init__ import LOGGER
 from helpers.utils import get_path_size
 
+async def MergeAudioNew(input_files, output_file):
+    cmd = ['ffmpeg', '-y', '-i', 'concat:' + '|'.join(input_files), '-c', 'copy', output_file]
+    proc = await asyncio.create_subprocess_exec(*cmd)
+    await proc.communicate()
+
+async def take_screen_shot(input_file, time, output_file):
+    cmd = ['ffmpeg', '-y', '-ss', str(time), '-i', input_file, '-vframes', '1', output_file]
+    proc = await asyncio.create_subprocess_exec(*cmd)
+    await proc.communicate()
+
+
 
 async def MergeVideo(input_file: str, user_id: int, message: Message, format_: str):
     """
