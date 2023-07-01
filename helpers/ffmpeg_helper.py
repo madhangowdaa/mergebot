@@ -266,7 +266,8 @@ async def take_screen_shot(video_file, output_directory, ttl):
     returns: This will return path of screenshot
     """
     # https://stackoverflow.com/a/13891070/4723940
-    out_put_file_name = os.path.join(output_directory, str(time.time()) + ".jpg")
+   #out_put_file_name = os.path.join(output_directory, str(time.time()) + ".jpg")
+    out_put_file_name = os.path.join(output_directory, str(int(time.time())) + ".jpg")
     if video_file.upper().endswith(
         (
             "MKV",
